@@ -1,0 +1,30 @@
+[project]
+name = "bimedoc"
+version = "0.1.0"
+description = "Django REST API to extract URL information (domain, title, images, stylesheets) and track Bitcoin-EUR and EUR-GBP rates using Blockchain and ECB APIs."
+authors = [{ name = "Macktireh", email = "abdimack97@gmail.com" }]
+requires-python = ">=3.12"
+readme = "README.md"
+license = { text = "MIT" }
+dependencies = []
+
+
+[tool.pdm.scripts]
+newapp = "python src/manage.py startapp"
+makemigrations = "python src/manage.py makemigrations"
+migrate = "python src/manage.py migrate"
+dev = "python src/manage.py runserver"
+test = "python src/manage.py test -v 2"
+createsuperuser = "python src/manage.py createsuperuser --email=admin@example.com --first_name=Admin --last_name=AD"
+collectstatic = "python src/manage.py collectstatic"
+loaddata = "python src/manage.py loaddata"
+rufffix = "ruff check --fix"
+ruffformat = "ruff format"
+ruffcheck = "ruff check"
+docker = "docker compose up --build"
+mmm = { composite = ["makemigrations", "migrate"] }
+ruff = { composite = ["ruffformat", "rufffix"] }
+
+
+[tool.pdm]
+distribution = false
