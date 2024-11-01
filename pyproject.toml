@@ -8,6 +8,9 @@ readme = "README.md"
 license = { text = "MIT" }
 dependencies = ["django>=5.1.2", "djangorestframework>=3.15.2"]
 
+[dependency-groups]
+lint = ["pre-commit>=4.0.1", "ruff>=0.7.1"]
+
 
 [tool.pdm.scripts]
 newapp = "python src/manage.py startapp"
@@ -28,3 +31,45 @@ ruff = { composite = ["ruffformat", "rufffix"] }
 
 [tool.pdm]
 distribution = false
+
+
+[tool.ruff]
+line-length = 110
+exclude = [
+    ".bzr",
+    ".direnv",
+    ".eggs",
+    ".git",
+    ".git-rewrite",
+    ".hg",
+    ".mypy_cache",
+    ".nox",
+    ".pants.d",
+    ".pytype",
+    ".ruff_cache",
+    ".svn",
+    ".tox",
+    ".venv",
+    "__pypackages__",
+    "_build",
+    "buck-out",
+    "build",
+    "dist",
+    "node_modules",
+    "venv",
+]
+[tool.ruff.lint]
+select = [
+    # pycodestyle
+    "E",
+    # Pyflakes
+    "F",
+    # pyupgrade
+    "UP",
+    # flake8-bugbear
+    "B",
+    # flake8-simplify
+    "SIM",
+    # isort
+    "I",
+]
