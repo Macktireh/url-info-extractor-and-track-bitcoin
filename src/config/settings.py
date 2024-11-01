@@ -19,6 +19,7 @@ ALLOWED_HOSTS = env.list(var="ALLOWED_HOSTS", default=["localhost", "127.0.0.1"]
 LOCAL_APPS = [
     "apps.common",
     "apps.accounts",
+    "apps.api",
 ]
 
 THIRD_PARTY_APPS = []
