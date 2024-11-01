@@ -16,7 +16,9 @@ ALLOWED_HOSTS = env.list(var="ALLOWED_HOSTS", default=["http://localhost:8000", 
 
 
 # Application definition
-LOCAL_APPS = []
+LOCAL_APPS = [
+    "apps.common",
+]
 
 THIRD_PARTY_APPS = []
 
