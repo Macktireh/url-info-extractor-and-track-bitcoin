@@ -5,7 +5,7 @@
 groups = ["default", "lint"]
 strategy = ["inherit_metadata"]
 lock_version = "4.5.0"
-content_hash = "sha256:0b807ce011fb2fa019764f3de51e90c25adf8ba4c98a2b2ac8ec1d9ccd0064cb"
+content_hash = "sha256:a215260e8b9fd4286cecb1102832f62874d1db1d123b1dfca539cebd32e95891"
 
 [[metadata.targets]]
 requires_python = ">=3.12"
@@ -59,6 +59,17 @@ dependencies = [
 files = [
     {file = "Django-5.1.2-py3-none-any.whl", hash = "sha256:f11aa87ad8d5617171e3f77e1d5d16f004b79a2cf5d2e1d2b97a6a1f8e9ba5ed"},
     {file = "Django-5.1.2.tar.gz", hash = "sha256:bd7376f90c99f96b643722eee676498706c9fd7dc759f55ebfaf2c08ebcdf4f0"},
+]
+
+[[package]]
+name = "django-environ"
+version = "0.11.2"
+requires_python = ">=3.6,<4"
+summary = "A package that allows you to utilize 12factor inspired environment variables to configure your Django application."
+groups = ["default"]
+files = [
+    {file = "django-environ-0.11.2.tar.gz", hash = "sha256:f32a87aa0899894c27d4e1776fa6b477e8164ed7f6b3e410a62a6d72caaf64be"},
+    {file = "django_environ-0.11.2-py2.py3-none-any.whl", hash = "sha256:0ff95ab4344bfeff693836aa978e6840abef2e2f1145adff7735892711590c05"},
 ]
 
 [[package]]
