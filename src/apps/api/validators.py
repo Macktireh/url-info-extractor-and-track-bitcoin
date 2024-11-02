@@ -18,13 +18,13 @@ class URLStatusValidator(URLValidator):
             response = requests.head(url=value)
             if response.status_code != HTTPStatus.OK:
                 raise ValidationError(
-                    _("The URL returned an unsuccessful status code: %(status_code)s"),
-                    code="invalid_status",
+                    _("The URL is valid, but returned an unsuccessful status code: %(status_code)s"),
+                    code="status_code_error",
                     params={"value": value, "status_code": response.status_code},
                 )
         except requests.RequestException as e:
             raise ValidationError(
-                _("The URL is valid, but the server could not be reached."),
+                _("The URL is valid, but the server could not be reached and returned an error: %(error)s"),
                 code="request_error",
                 params={"value": value, "error": str(e)},
             ) from e
