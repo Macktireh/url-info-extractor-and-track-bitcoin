@@ -1,18 +1,16 @@
 from http import HTTPStatus
 from uuid import uuid4
 
-from django.test import TestCase
-from rest_framework.test import APIClient
+from rest_framework.test import APITestCase
 
 from apps.urlinfo.tests.factories import URLInfoGenerator
 
 
-class URLInfoAPITestCase(TestCase):
+class URLInfoAPITestCase(APITestCase):
     """Test case for URLInfo API endpoints."""
 
     def setUp(self) -> None:
         """Initialize test client and dummy data."""
-        self.client = APIClient()
         self.dummy_data = URLInfoGenerator.generate_dummy_data()
 
     def test_create_urlinfo_with_valid_url(self) -> None:

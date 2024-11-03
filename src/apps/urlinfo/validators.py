@@ -6,7 +6,7 @@ from django.utils.translation import gettext_lazy as _
 from rest_framework.exceptions import ValidationError as RestValidationError
 from rest_framework.validators import UniqueValidator as RestUniqueValidator
 
-from apps.common.exceptions import ConflictError, UnprocessableEntityError
+from apps.common.exceptions import ConflictException, UnprocessableEntityException
 
 
 class UniqueValidator(RestUniqueValidator):
@@ -14,7 +14,7 @@ class UniqueValidator(RestUniqueValidator):
         try:
             super().__call__(value, serializer_field)
         except RestValidationError as e:
-            raise ConflictError(e.detail) from e
+            raise ConflictException(e.detail) from e
 
 
 class URLValidator(DjangoURLValidator):
@@ -28,10 +28,10 @@ class URLStatusValidator(URLValidator):
         try:
             response = requests.head(url=value)
             if response.status_code != HTTPStatus.OK:
-                raise UnprocessableEntityError(
+                raise UnprocessableEntityException(
                     _(f"The URL is valid, but returned an unsuccessful status code: {response.status_code}"),
                 )
         except requests.RequestException as e:
-            raise UnprocessableEntityError(
+            raise UnprocessableEntityException(
                 _(f"The URL is valid, but the server could not be reached and returned an error: {e}"),
             ) from e
