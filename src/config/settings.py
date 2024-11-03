@@ -22,6 +22,7 @@ LOCAL_APPS = [
     "apps.common",
     "apps.accounts",
     "apps.urlinfo",
+    "apps.crypto",
 ]
 
 THIRD_PARTY_APPS = []
