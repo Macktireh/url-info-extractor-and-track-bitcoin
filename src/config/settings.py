@@ -1,3 +1,5 @@
+import secrets
+
 from config.env import BASE_DIR, DjangoEnvironment, env, env_to_enum
 
 env.read_env(env_file=BASE_DIR.parent / ".env")
@@ -7,7 +9,7 @@ DJANGO_ENV = env_to_enum(
 )
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = env.str(var="DJANGO_SECRET_KEY")
+SECRET_KEY = env.str(var="DJANGO_SECRET_KEY", default=secrets.token_urlsafe(50))
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = DJANGO_ENV == DjangoEnvironment.LOCAL
