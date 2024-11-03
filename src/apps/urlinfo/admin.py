@@ -5,9 +5,9 @@ from django.contrib import admin, messages
 from django.core.exceptions import ValidationError
 from django.forms import Form
 
-from apps.api.models import URLInfo
-from apps.api.services import url_info_service
 from apps.common.types import AuthenticatedHttpRequest
+from apps.urlinfo.models import URLInfo
+from apps.urlinfo.services import urlinfo_service
 
 
 @admin.register(URLInfo)
@@ -91,6 +91,6 @@ class URLInfoAdmin(admin.ModelAdmin):
         if change:
             return super().save_model(request, obj, form, change)
         try:
-            url_info_service.create_resources(**form.cleaned_data)
+            urlinfo_service.create_resources(**form.cleaned_data)
         except ValidationError as exc:
             self.message_user(request, str(exc), messages.ERROR)

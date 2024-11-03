@@ -2,8 +2,8 @@ from django.core.validators import DomainNameValidator
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
-from apps.api.validators import URLValidator
 from apps.common.models import BaseModel
+from apps.urlinfo.validators import URLValidator
 
 
 class ProtocolChoices(models.TextChoices):
@@ -16,7 +16,7 @@ class URLInfo(BaseModel):
         verbose_name=_("URL"),
         unique=True,
         db_index=True,
-        validators=[URLValidator],
+        validators=[URLValidator()],
         help_text=_("The URL of the page"),
     )
     protocol = models.CharField(
@@ -35,7 +35,7 @@ class URLInfo(BaseModel):
     domain_name = models.CharField(
         verbose_name=_("Domain name"),
         max_length=255,
-        validators=[DomainNameValidator],
+        validators=[DomainNameValidator()],
         help_text=_("The domain name of the URL"),
     )
     title = models.CharField(verbose_name=_("Title"), max_length=255, help_text=_("The title of the page"))
@@ -49,7 +49,7 @@ class URLInfo(BaseModel):
     )
 
     class Meta:
-        db_table = "url_info"
+        db_table = "urlinfo"
         verbose_name = _("URL info")
         verbose_name_plural = _("URL infos")
 

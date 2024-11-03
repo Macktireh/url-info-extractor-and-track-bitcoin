@@ -1,5 +1,5 @@
-from apps.api.models import URLInfo
 from apps.common.repositories.django_base_repository import DjangoBaseRepository
+from apps.urlinfo.models import URLInfo
 
 
 class URLInfoRepository(DjangoBaseRepository[URLInfo]):
@@ -7,4 +7,4 @@ class URLInfoRepository(DjangoBaseRepository[URLInfo]):
         super().__init__(model)
 
 
-url_info_repository = URLInfoRepository(URLInfo)
+urlinfo_repository = URLInfoRepository(URLInfo)
