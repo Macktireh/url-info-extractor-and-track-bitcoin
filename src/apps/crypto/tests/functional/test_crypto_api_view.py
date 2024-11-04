@@ -59,9 +59,6 @@ class CryptoBitcoinViewTests(APITestCase):
         mock_get_bitcoin_data.side_effect = Exception("Unexpected error")
 
         response = self.client.get(self.url)
-        print()
-        print(response.data)
-        print()
 
         # Assertions
         self.assertEqual(response.status_code, HTTPStatus.INTERNAL_SERVER_ERROR)
