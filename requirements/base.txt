@@ -2,4 +2,7 @@ beautifulsoup4
 django
 django-environ
 djangorestframework
+gunicorn
+psycopg[binary]
 tldextract
+whitenoise

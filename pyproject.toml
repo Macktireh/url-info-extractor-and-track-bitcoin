@@ -6,7 +6,16 @@ authors = [{ name = "Macktireh", email = "abdimack97@gmail.com" }]
 requires-python = ">=3.12"
 readme = "README.md"
 license = { text = "MIT" }
-dependencies = ["django>=5.1.2", "djangorestframework>=3.15.2", "django-environ>=0.11.2", "tldextract>=5.1.2", "beautifulsoup4>=4.12.3"]
+dependencies = [
+    "beautifulsoup4>=4.12.3",
+    "django>=5.1.2",
+    "djangorestframework>=3.15.2",
+    "django-environ>=0.11.2",
+    "gunicorn>=23.0.0",
+    "psycopg[binary]>=3.2.3",
+    "tldextract>=5.1.2",
+    "whitenoise>=6.8.2",
+]
 
 [dependency-groups]
 lint = ["pre-commit>=4.0.1", "ruff>=0.7.1"]
@@ -18,7 +27,8 @@ makemigrations = "python src/manage.py makemigrations"
 migrate = "python src/manage.py migrate"
 dev = "python src/manage.py runserver"
 test = "python src/manage.py test -v 2"
-createsuperuser = "python src/manage.py createsuperuser --email=admin@example.com --first_name=Admin --last_name=AD"
+devcreatesuperuser = "python src/manage.py createsuperuser --email=admin@example.com --first_name=Admin --last_name=AD"
+createsuperuser = "python src/manage.py createsuperuser"
 collectstatic = "python src/manage.py collectstatic"
 loaddata = "python src/manage.py loaddata"
 rufffix = "ruff check --fix"
