@@ -1,0 +1,33 @@
+volumes:
+  bimedoc_local_db_volume: {}
+
+services:
+  django:
+    build: 
+      context: .
+      dockerfile: /docker/local/django/Dockerfile
+    image: bimedoc_local_django
+    container_name: bimedoc_local_django
+    volumes:
+      - .:/project
+    ports:
+      - 8000:8000
+    # env_file:
+    #   - ./.env
+    environment:
+      - "DJANGO_SECRET_KEY=supersecretkey"
+    command: /start
+    depends_on:
+      - postgres
+
+  postgres:
+    image: postgres:16-alpine
+    container_name: bimedoc_local_postgres
+    volumes:
+      - bimedoc_local_db_volume:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+    environment:
+      - "POSTGRES_USER=${DB_USER}"
+      - "POSTGRES_PASSWORD=${DB_PASSWORD}"
+      - "POSTGRES_DB=${DB_NAME}"
