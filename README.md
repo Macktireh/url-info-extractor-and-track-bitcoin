@@ -28,7 +28,7 @@ Django REST API to extract URL information (domain, title, images, stylesheets) 
 
 Live demo of the API is available at [https://bimedoc-technical-test.onrender.com/](https://bimedoc-technical-test.onrender.com/).
 
-> [!Info]  
+> [!NOTE]
 > Please note that loading may take a few seconds on the first visit due to the use of the free card.
 
 ## Prerequisites
