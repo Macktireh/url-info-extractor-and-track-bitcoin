@@ -26,7 +26,7 @@ Django REST API to extract URL information (domain, title, images, stylesheets) 
 
 ## Demo
 
-Live demo of the API is available at [https://bimedoc-technical-test.onrender.com/](https://bimedoc-technical-test.onrender.com/).
+Live demo of the API is available at [https://url-info-extractor.onrender.com/](https://url-info-extractor.onrender.com/).
 
 > [!NOTE]
 > Please note that loading may take a few seconds on the first visit due to the use of the free card.
@@ -44,11 +44,11 @@ To get started with the application in your local environment, follow these step
 ### Clone the Project
 
 ```bash
-git clone https://github.com/Macktireh/bimedoc-technical-test.git
+git clone https://github.com/Macktireh/url-info-extractor-and-track-bitcoin.git
 ```
 
 ```bash
-cd bimedoc-technical-test
+cd url-info-extractor-and-track-bitcoin
 ```
 
 ### Configuration Environment Variables
